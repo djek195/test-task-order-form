@@ -1,29 +1,18 @@
 import { useRef, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Typography, Box, Stack, Paper, Modal, Button } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import Paper from '@mui/material/Paper';
 import Header from './components/Header/Header';
 import OrderSummary from './components/OrderSummary/OrderSummary';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
-import Shipping from './components/Shipping/Shipping';
-import Billing from './components/Billing/Billing';
-import Payment from './components/Payment/Payment';
+import Shipping from './pages/Shipping/Shipping';
+import Billing from './pages/Billing/Billing';
+import Payment from './pages/Payment/Payment';
 import './App.css';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  height: '600px',
-}));
-
 function App() {
+  // const navigate = useNavigate();
   const rootRef = useRef(null);
 
   const [modalView, setModalView] = useState(false);
