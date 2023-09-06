@@ -3,7 +3,7 @@ import GpsNotFixedIcon from '@mui/icons-material/GpsNotFixed';
 import { useField } from 'formik';
 
 const OutlinedInputWrapper = ({ name, ...otherProps }) => {
-  const [field, mata] = useField(name);
+  const [field, meta] = useField(name);
 
   const configOutlinedInput = {
     ...otherProps,
@@ -12,16 +12,12 @@ const OutlinedInputWrapper = ({ name, ...otherProps }) => {
     variant: 'outlined',
   };
 
-  if (mata && mata.touched && mata.error) {
+  if (meta && meta.touched && meta.error) {
     configOutlinedInput.error = true;
-    configOutlinedInput.helperText = mata.error;
+    configOutlinedInput.helperText = meta.error;
   }
 
-  return (
-    <OutlinedInput
-      {...configOutlinedInput}
-    />
-  );
+  return <OutlinedInput {...configOutlinedInput} />;
 };
 
 export default OutlinedInputWrapper;

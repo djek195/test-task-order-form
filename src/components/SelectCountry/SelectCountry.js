@@ -15,7 +15,7 @@ const SelectCountry = ({ name, options, ...otherProps }) => {
     ...otherProps,
     select: true,
     variant: 'outlined',
-    onchange: handleChange,
+    onChange: handleChange,
   };
 
   if (meta && meta.touched && meta.error) {
