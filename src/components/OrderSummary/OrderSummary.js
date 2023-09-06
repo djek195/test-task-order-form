@@ -11,7 +11,13 @@ const OrderSummary = () => {
         }}
       >
         <Typography>Order Summary</Typography>
-        <Link>edit order</Link>
+        <Link
+          sx={{
+            cursor: 'pointer',
+          }}
+        >
+          edit order
+        </Link>
       </Stack>
     </Stack>
   );

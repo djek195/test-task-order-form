@@ -114,10 +114,7 @@ const Shipping = ({ closeModal }) => {
             </RowStack>
           </SubStack>
           <RowStack>
-            <ButtonWrapper
-            >
-              Continue
-            </ButtonWrapper>
+            <ButtonWrapper>Continue</ButtonWrapper>
             <Button
               sx={{
                 height: '56px',
