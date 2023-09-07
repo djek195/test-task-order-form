@@ -139,13 +139,7 @@ const Billing = ({ closeModal }) => {
             </SubStack>
             <RowStack>
               <ButtonWrapper>Continue</ButtonWrapper>
-              <Button
-                sx={{
-                  height: '56px',
-                }}
-                variant="outlined"
-                onClick={closeModal}
-              >
+              <Button variant="outlined" onClick={closeModal}>
                 Close
               </Button>
             </RowStack>
