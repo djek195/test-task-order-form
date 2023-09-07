@@ -1,5 +1,4 @@
-import { OutlinedInput, InputAdornment } from '@mui/material';
-import GpsNotFixedIcon from '@mui/icons-material/GpsNotFixed';
+import { OutlinedInput } from '@mui/material';
 import { useField } from 'formik';
 
 const OutlinedInputWrapper = ({ name, ...otherProps }) => {
@@ -8,7 +7,6 @@ const OutlinedInputWrapper = ({ name, ...otherProps }) => {
   const configOutlinedInput = {
     ...otherProps,
     ...field,
-    // fullWith: true,
     variant: 'outlined',
   };
 

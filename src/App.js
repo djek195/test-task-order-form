@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
-import { Typography, Box, Stack, Paper, Modal, Button } from '@mui/material';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Box, Modal } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import Header from './components/Header/Header';
 import OrderSummary from './components/OrderSummary/OrderSummary';
@@ -9,10 +8,10 @@ import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import Shipping from './pages/Shipping/Shipping';
 import Billing from './pages/Billing/Billing';
 import Payment from './pages/Payment/Payment';
+import Completion from './pages/Completion/Completion';
 import './App.css';
 
 function App() {
-  // const navigate = useNavigate();
   const rootRef = useRef(null);
 
   const [modalView, setModalView] = useState(false);
@@ -72,6 +71,10 @@ function App() {
                   <Route
                     path={'/payment'}
                     element={<Payment closeModal={toggleModalWindow} />}
+                  />
+                  <Route
+                    path={'/completion'}
+                    element={<Completion closeModal={toggleModalWindow} />}
                   />
                 </Routes>
               </Grid>

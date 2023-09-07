@@ -56,9 +56,9 @@ const Billing = ({ closeModal }) => {
       initialValues={INITIAL_FORM_STATE}
       validationSchema={FORM_VALIDATION}
       onSubmit={(values) => {
-        const key = 'data';
-        const dataToStore = JSON.stringify(values);
-        localStorage.setItem(key, dataToStore);
+        // const key = 'data';
+        // const dataToStore = JSON.stringify(values);
+        // localStorage.setItem(key, dataToStore);
         navigate('/payment');
       }}
     >

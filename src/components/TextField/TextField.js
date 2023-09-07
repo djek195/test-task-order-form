@@ -1,14 +1,12 @@
 import { TextField } from '@mui/material';
 import { useField } from 'formik';
 
-
 const TextFieldWrapper = ({ name, ...otherProps }) => {
   const [field, mata] = useField(name);
 
   const configTextField = {
     ...otherProps,
     ...field,
-    // fullWith: true,
     variant: 'outlined',
   };
 
@@ -17,7 +15,6 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
     configTextField.helperText = mata.error;
   }
 
-  
   return <TextField {...configTextField} />;
 };
 
