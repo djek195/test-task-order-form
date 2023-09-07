@@ -7,41 +7,50 @@ import OutlinedInputWrapper from '../../components/OutlinedInput/OutlinedInput';
 import SelectCountry from '../../components/SelectCountry/SelectCountry';
 import ButtonWrapper from '../../components/Button/Button';
 import { RowStack, TitleStack, SubStack } from '../../styles/Form.styled';
+import { useNavigate } from 'react-router-dom';
 
+import { INITIAL_FORM_STATE } from '../../components/state/state';
+import { FORM_VALIDATION } from '../../validation/validation';
 import countries from '../../data/countries.json';
 
-const INITIAL_FORM_STATE = {
-  name: '',
-  phone: '',
-  // email: '',
-  address: '',
-  apt: '',
-  city: '',
-  country: '',
-  zip: '',
-};
+// const INITIAL_FORM_STATE = {
+//   fullName: '',
+//   phone: '',
+//   email: '',
+//   address: '',
+//   apt: '',
+//   city: '',
+//   country: '',
+//   zip: '',
+// };
 
-const FORM_VALIDATION = Yup.object().shape({
-  fullName: Yup.string().required('Required'),
-  // email: Yup.string().email('Invalid email.').required('Required'),
-  phone: Yup.number()
-    .integer()
-    .typeError('Please enter a valid phone number')
-    .required('Required'),
-  address: Yup.string().required('Required'),
-  apt: Yup.string(),
-  city: Yup.string().required('Required'),
-  country: Yup.string().required('Required'),
-  zip: Yup.number().integer().required('Required'),
-});
+// const FORM_VALIDATION = Yup.object().shape({
+//   fullName: Yup.string().required('Required'),
+//   email: Yup.string().email('Invalid email.').required('Required'),
+//   phone: Yup.number()
+//     .integer()
+//     .typeError('Please enter a valid phone number')
+//     .required('Required'),
+//   address: Yup.string().required('Required'),
+//   apt: Yup.string(),
+//   city: Yup.string().required('Required'),
+//   country: Yup.string().required('Required'),
+//   zip: Yup.number().integer().required('Required'),
+// });
 
 const Shipping = ({ closeModal }) => {
+  const navigate = useNavigate();
+
   return (
     <Formik
       initialValues={INITIAL_FORM_STATE}
       validationSchema={FORM_VALIDATION}
       onSubmit={(values) => {
-        console.log(values);
+        console.log('Form values:', values);
+        const key = 'data';
+        const dataToStore = JSON.stringify(values);
+        localStorage.setItem(key, dataToStore);
+        navigate('/billing');
       }}
     >
       <Form>
@@ -114,17 +123,8 @@ const Shipping = ({ closeModal }) => {
             </RowStack>
           </SubStack>
           <RowStack>
-            <ButtonWrapper
-            >
-              Continue
-            </ButtonWrapper>
-            <Button
-              sx={{
-                height: '56px',
-              }}
-              variant="outlined"
-              onClick={closeModal}
-            >
+            <ButtonWrapper>Continue</ButtonWrapper>
+            <Button variant="outlined" onClick={closeModal}>
               Close
             </Button>
           </RowStack>

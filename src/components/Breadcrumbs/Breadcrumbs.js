@@ -1,9 +1,8 @@
-import * as React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { useLocation } from 'react-router-dom';
 
 function handleClick(event) {
   event.preventDefault();
@@ -11,29 +10,37 @@ function handleClick(event) {
 }
 
 export default function CustomSeparator() {
+  const location = useLocation();
+  const currentPath = location.pathname; //
+
+
+  const isShippingActive = currentPath === '/';
+  const isBillingActive = currentPath === '/billing';
+  const isPaymentActive = currentPath === '/payment';
+
   const breadcrumbs = [
     <Link
-      underline="hover"
+      underline={isShippingActive ? "none" : "hover"}
       key="1"
-      color="text.primary"
+      color={isShippingActive ? "text.primary" : "inherit"} 
       href="/"
       onClick={handleClick}
     >
       Shipping
     </Link>,
     <Link
-      underline="hover"
+      underline={isBillingActive ? "none" : "hover"}
       key="2"
-      color="inherit"
+      color={isBillingActive ? "text.primary" : "inherit"}
       href="/billing"
       onClick={handleClick}
     >
       Billing
     </Link>,
     <Link
-      underline="hover"
+      underline={isPaymentActive ? "none" : "hover"}
       key="3"
-      color="inherit"
+      color={isPaymentActive ? "text.primary" : "inherit"}
       href="/payment"
       onClick={handleClick}
     >

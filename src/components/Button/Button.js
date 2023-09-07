@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '@mui/material';
 import { useFormikContext } from 'formik';
 
@@ -10,6 +9,7 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
   };
 
   const configButton = {
+    ...otherProps,
     variant: 'contained',
     color: 'primary',
     onClick: handleSubmit,

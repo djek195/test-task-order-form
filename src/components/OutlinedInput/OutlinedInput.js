@@ -1,27 +1,21 @@
-import { OutlinedInput, InputAdornment } from '@mui/material';
-import GpsNotFixedIcon from '@mui/icons-material/GpsNotFixed';
+import { OutlinedInput } from '@mui/material';
 import { useField } from 'formik';
 
 const OutlinedInputWrapper = ({ name, ...otherProps }) => {
-  const [field, mata] = useField(name);
+  const [field, meta] = useField(name);
 
   const configOutlinedInput = {
     ...otherProps,
     ...field,
-    // fullWith: true,
     variant: 'outlined',
   };
 
-  if (mata && mata.touched && mata.error) {
+  if (meta && meta.touched && meta.error) {
     configOutlinedInput.error = true;
-    configOutlinedInput.helperText = mata.error;
+    configOutlinedInput.helperText = meta.error;
   }
 
-  return (
-    <OutlinedInput
-      {...configOutlinedInput}
-    />
-  );
+  return <OutlinedInput {...configOutlinedInput} />;
 };
 
 export default OutlinedInputWrapper;
