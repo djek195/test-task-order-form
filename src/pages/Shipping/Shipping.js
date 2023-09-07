@@ -1,5 +1,4 @@
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import { Typography, InputAdornment, Button } from '@mui/material';
 import GpsNotFixedIcon from '@mui/icons-material/GpsNotFixed';
 import TextFieldWrapper from '../../components/TextField/TextField';
@@ -10,33 +9,8 @@ import { RowStack, TitleStack, SubStack } from '../../styles/Form.styled';
 import { useNavigate } from 'react-router-dom';
 
 import { INITIAL_FORM_STATE } from '../../components/state/state';
-import { FORM_VALIDATION } from '../../validation/validation';
+import { SHIPPING_VALIDATION } from '../../validation/validation';
 import countries from '../../data/countries.json';
-
-// const INITIAL_FORM_STATE = {
-//   fullName: '',
-//   phone: '',
-//   email: '',
-//   address: '',
-//   apt: '',
-//   city: '',
-//   country: '',
-//   zip: '',
-// };
-
-// const FORM_VALIDATION = Yup.object().shape({
-//   fullName: Yup.string().required('Required'),
-//   email: Yup.string().email('Invalid email.').required('Required'),
-//   phone: Yup.number()
-//     .integer()
-//     .typeError('Please enter a valid phone number')
-//     .required('Required'),
-//   address: Yup.string().required('Required'),
-//   apt: Yup.string(),
-//   city: Yup.string().required('Required'),
-//   country: Yup.string().required('Required'),
-//   zip: Yup.number().integer().required('Required'),
-// });
 
 const Shipping = ({ closeModal }) => {
   const navigate = useNavigate();
@@ -44,12 +18,12 @@ const Shipping = ({ closeModal }) => {
   return (
     <Formik
       initialValues={INITIAL_FORM_STATE}
-      validationSchema={FORM_VALIDATION}
+      validationSchema={SHIPPING_VALIDATION}
       onSubmit={(values) => {
         console.log('Form values:', values);
-        const key = 'data';
-        const dataToStore = JSON.stringify(values);
-        localStorage.setItem(key, dataToStore);
+        const shipingDataKey = 'shippingData';
+        const shippingDataToStore = JSON.stringify(values);
+        localStorage.setItem(shipingDataKey, shippingDataToStore);
         navigate('/billing');
       }}
     >

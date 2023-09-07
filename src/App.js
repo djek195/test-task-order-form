@@ -8,7 +8,7 @@ import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import Shipping from './pages/Shipping/Shipping';
 import Billing from './pages/Billing/Billing';
 import Payment from './pages/Payment/Payment';
-import Completion from './pages/Completion/Completion';
+// import Completion from './pages/Completion/Completion';
 import './App.css';
 
 function App() {
@@ -72,10 +72,10 @@ function App() {
                     path={'/payment'}
                     element={<Payment closeModal={toggleModalWindow} />}
                   />
-                  <Route
+                  {/* <Route
                     path={'/completion'}
                     element={<Completion closeModal={toggleModalWindow} />}
-                  />
+                  /> */}
                 </Routes>
               </Grid>
               <Grid
